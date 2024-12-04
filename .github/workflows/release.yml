@@ -1,45 +1,24 @@
-name: CI and Release
+name: Release Drafter
 
 on:
-  pull_request:
+  push:
     branches:
       - main
+  pull_request:
+    types: [opened, reopened, synchronize]
+
+permissions:
+  contents: write
+  pull-requests: write
 
 jobs:
-  checks:
-    if: github.event_name == 'pull_request'
-    runs-on: ubuntu-22.04
+  update_release_draft:
+    runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - name: Run tests
-        run: |
-          echo "Running CI checks for the pull request..."
+      - name: Check out repository
+        uses: actions/checkout@v4
 
-  release:
-    if: github.event_name == 'pull_request'
-    runs-on: ubuntu-22.04
-    permissions:
-      contents: write
-    steps:
-      - uses: actions/checkout@v4
-
-      - name: Extract current version from pubspec.yaml
-        id: extract_version
-        run: |
-          current_version=$(grep '^version: ' pubspec.yaml | awk '{print $2}' | sed 's/+.*//')
-          echo "current_version=$current_version" >> $GITHUB_ENV
-
-      - name: Get latest release version from GitHub
-        id: get_latest_release
-        run: |
-          latest_version=$(gh release view --json tagName -q .tagName | sed 's/^v//')
-          echo "latest_version=$latest_version" >> $GITHUB_ENV
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Draft Release with Release Drafter
+      - name: Run Release Drafter
         uses: release-drafter/release-drafter@v6
-        with:
-          version: ${{ env.current_version }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
