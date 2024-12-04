@@ -76,8 +76,8 @@
   dart run flutter_native_splash:create
   ```
 
-  > [!IMPORTANT]
-  > الترتيب مهم، وليس اعتباطيًّا!
+> [!IMPORTANT]
+> الترتيب مهم، وليس اعتباطيًّا!
 
 </div>
 <div align="right">
