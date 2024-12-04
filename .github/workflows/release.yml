@@ -4,9 +4,6 @@ on:
   pull_request:
     branches:
       - main
-  pull_request_target:
-    branches:
-      - main
 
 jobs:
   checks:
@@ -19,8 +16,10 @@ jobs:
           echo "Running CI checks for the pull request..."
 
   release:
-    if: github.event_name == 'pull_request_target'
+    if: github.event_name == 'pull_request'
     runs-on: ubuntu-22.04
+    permissions:
+      contents: write
     steps:
       - uses: actions/checkout@v4
 
