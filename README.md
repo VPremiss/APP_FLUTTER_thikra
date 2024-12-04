@@ -24,6 +24,14 @@
     width="270"
 />
 
+<details>
+    <summary>فيديو استعراضي</summary>
+    <video
+        controls
+        src="https://github.com/user-attachments/assets/80e25734-db4c-450a-aaaa-969c74b71661"
+    ></video>
+</details>
+
 ### الخصائص
 
 - إمكانية إضافة تذكيرات مهما كان نوعها كنصوص، وبحد 400 حرف للذكرى
