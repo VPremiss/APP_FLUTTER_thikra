@@ -11,17 +11,17 @@
 <img
     src="./.github/images/screenshot-01.jpg"
     alt="Screenshot 01"
-    width="280"
+    width="270"
 />
 <img
     src="./.github/images/screenshot-02.jpg"
     alt="Screenshot 02"
-    width="280"
+    width="270"
 />
 <img
     src="./.github/images/screenshot-03.jpg"
     alt="Screenshot 03"
-    width="280"
+    width="270"
 />
 
 ### الخصائص
