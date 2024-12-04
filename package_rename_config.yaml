@@ -1,0 +1,26 @@
+package_rename_config:
+  android:
+    app_name: ذكرى
+    package_name: dev.vpremiss.thikra_app
+    override_old_package: com.example.thikra_app
+    lang: kotlin
+  ios:
+    app_name: ذكرى
+    bundle_name: thikra_app
+    package_name: dev.vpremiss.thikra_app
+  web:
+    app_name: ذكرى
+    description: A paired-name generator app.
+  linux:
+    app_name: ذكرى
+    package_name: dev.vpremiss.thikra_app
+    exe_name: thikra_app-linux-x64
+  windows:
+    app_name: ذكرى
+    organization: VPremiss
+    copyright_notice: Copyright ©️ 2024 VPremiss. All rights reserved.
+    exe_name: thikra_app-win32
+  macos:
+    app_name: ذكرى
+    package_name: dev.vpremiss.thikra_app
+    copyright_notice: Copyright ©️ 2024 VPremiss. All rights reserved.

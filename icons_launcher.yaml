@@ -1,0 +1,20 @@
+icons_launcher:
+  image_path: "assets/images/logo/base.png"
+  platforms:
+    android:
+      enable: true
+      notification_image: "assets/images/logo/mono.png"
+      adaptive_background_color: "#ece5d5"
+      adaptive_foreground_image: "assets/images/logo/adaptive.png"
+      adaptive_round_image: "assets/images/logo/adaptive.png"
+      adaptive_monochrome_image: "assets/images/logo/mono.png"
+    ios:
+      enable: false
+    web:
+      enable: false
+    macos:
+      enable: false
+    windows:
+      enable: false
+    linux:
+      enable: false

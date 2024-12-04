@@ -1,0 +1,53 @@
+name: thikra_app
+description: "A reminding app."
+publish_to: 'none'
+
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.5.4
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  flutter_foreground_task: ^8.13.0
+  objectbox: ^4.0.3
+  objectbox_flutter_libs: any
+  path_provider: ^2.1.5
+  path: ^1.9.0
+  is_lock_screen:
+    git:
+      url: https://github.com/GoodM4ven/flutter_is_lock_screen
+      ref: 138de2dc075e03698979174e28346a4c8c8d63dc
+  flutter_localizations:
+    sdk: flutter
+  overlay_pop_up: ^1.0.5+2
+  shared_preferences: ^2.3.3
+  flutter_native_splash: ^2.4.3
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  package_rename: ^1.7.1
+  icons_launcher: ^3.0.0
+  flutter_lints: ^4.0.0
+  build_runner: ^2.4.13
+  objectbox_generator: any
+
+flutter:
+  assets:
+    - assets/images/logo/base.png
+
+  uses-material-design: true
+
+  fonts:
+    - family: ReadexPro
+      fonts:
+        - asset: assets/fonts/ReadexPro/ReadexPro-Bold.ttf
+        - asset: assets/fonts/ReadexPro/ReadexPro-ExtraLight.ttf
+        - asset: assets/fonts/ReadexPro/ReadexPro-Light.ttf
+        - asset: assets/fonts/ReadexPro/ReadexPro-Medium.ttf
+        - asset: assets/fonts/ReadexPro/ReadexPro-Regular.ttf
+        - asset: assets/fonts/ReadexPro/ReadexPro-SemiBold.ttf

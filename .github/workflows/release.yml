@@ -1,0 +1,47 @@
+name: CI and Release
+
+on:
+  pull_request:
+    branches:
+      - main
+  pull_request_target:
+    branches:
+      - main
+
+jobs:
+  checks:
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Run tests
+        run: |
+          echo "Running CI checks for the pull request..."
+
+  release:
+    if: github.event_name == 'pull_request_target'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Extract current version from pubspec.yaml
+        id: extract_version
+        run: |
+          current_version=$(grep '^version: ' pubspec.yaml | awk '{print $2}' | sed 's/+.*//')
+          echo "current_version=$current_version" >> $GITHUB_ENV
+
+      - name: Get latest release version from GitHub
+        id: get_latest_release
+        run: |
+          latest_version=$(gh release view --json tagName -q .tagName | sed 's/^v//')
+          echo "latest_version=$latest_version" >> $GITHUB_ENV
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Draft Release with Release Drafter
+        uses: release-drafter/release-drafter@v6
+        with:
+          version: ${{ env.current_version }}
+          target_commitish: 'main'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
