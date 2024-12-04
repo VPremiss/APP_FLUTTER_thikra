@@ -11,17 +11,17 @@
 <img
     src="./.github/images/screenshot-01.jpg"
     alt="Screenshot 01"
-    width="320"
+    width="280"
 />
 <img
     src="./.github/images/screenshot-02.jpg"
     alt="Screenshot 02"
-    width="320"
+    width="280"
 />
 <img
     src="./.github/images/screenshot-03.jpg"
     alt="Screenshot 03"
-    width="320"
+    width="280"
 />
 
 ### الخصائص
@@ -56,11 +56,20 @@
 
 - إن قمتم بتعديل أو إضافة object-box جديد، فيجب تشغيل أمر بناء مكوناته في كل مرة:
 
+</div>
+<div align="left">
+
   ```bash
   flutter pub run build_runner build
   ```
 
+</div>
+<div align="right">
+
 - إن قمت بتعديل الأيقونة أو لون الخلفية الرئيسة، قم بإعادة صناعة الأيقونات وخلفياتها باستخدام:
+
+</div>
+<div align="left">
 
   ```
   dart run icons_launcher:create
@@ -70,10 +79,12 @@
   > [!IMPORTANT]
   > الترتيب مهم، وليس اعتباطيًّا!
 
+</div>
+<div align="right">
+
 ### الحزم المستخدمة
 
 </div>
-
 <div align="left">
 
 - [flutter_foreground_task](https://pub.dev/packages/flutter_foreground_task)
@@ -90,7 +101,6 @@
 - [build_runner](https://pub.dev/packages/build_runner)
 
 </div>
-
 <div align="right">
 
 ### المهمات
@@ -113,6 +123,49 @@
 ### الإنجاز
 
 يمكنك أيضًا تفقّد [خريطة](](https://github.com/users/VPremiss/projects/12/)) عمل المشروع من خلال صفحته الخاصة.
+
+### التصدير
+
+إن أردت تصدير البرنامج لإعادة نشره بشكل مختلف، فلا تنس إنشاء ملف [android/app/signing.properties] يحتوي على:
+
+</div>
+<div align="left">
+
+```
+storeFile=/home/<your-user>/release.keystore
+storePassword=<your-password>
+keyAlias=release
+keyPassword=<your-password>
+```
+
+</div>
+<div align="right">
+
+- حيث أن المفتاح قد تم إنشاؤه باستخدام أمر من قبيل:
+
+</div>
+<div align="left">
+
+```
+keytool -genkeypair -v -keystore release.keystore -keyalg RSA -keysize 2048 -validity 10000 -alias release
+```
+
+</div>
+<div align="right">
+
+- بحيث يكون ملف التوقيع محميًّا، والمسار له صحيح.
+
+ومن ثم يبقى بناء التطبيق باستخدام الأمر:
+
+</div>
+<div align="left">
+
+```
+flutter build apk --release
+```
+
+</div>
+<div align="right">
 
 
 ## الدعم
