@@ -11,7 +11,7 @@ on:
 jobs:
   checks:
     if: github.event_name == 'pull_request'
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     steps:
       - uses: actions/checkout@v4
       - name: Run tests
@@ -20,7 +20,7 @@ jobs:
 
   release:
     if: github.event_name == 'pull_request_target'
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     steps:
       - uses: actions/checkout@v4
 
@@ -42,6 +42,5 @@ jobs:
         uses: release-drafter/release-drafter@v6
         with:
           version: ${{ env.current_version }}
-          target_commitish: 'main'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
