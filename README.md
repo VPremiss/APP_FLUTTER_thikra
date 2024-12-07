@@ -83,11 +83,11 @@
   dart run icons_launcher:create
   dart run flutter_native_splash:create
   ```
+</div>
 
 > [!IMPORTANT]
 > الترتيب مهم، وليس اعتباطيًّا!
 
-</div>
 <div align="right">
 
 ### الحزم المستخدمة
